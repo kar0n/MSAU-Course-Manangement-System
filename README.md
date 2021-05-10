@@ -1,2 +1,2 @@
 # MSAU-Course-Manangement-System
-Navigate to master branch to view the project.
+Navigate to <a href="https://github.com/kar0n/MSAU-Course-Manangement-System/tree/master">master</a> branch to view the project.
