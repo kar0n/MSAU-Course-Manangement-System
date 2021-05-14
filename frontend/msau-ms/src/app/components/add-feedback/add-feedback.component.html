@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>Give Feedback</span>
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="feedbackForm" class="normal-form" (ngSubmit)="giveFeedback()">
+    <mat-grid-list cols="1" rowHeight="240px">
+        <mat-grid-tile>
+                <div class="controllers-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Feedback</mat-label>
+                        <textarea matInput placeholder="Training Review..." formControlName="feedback"> </textarea>
+                    </mat-form-field>
+                    <div class="button-row">
+                        <button [disabled]="feedbackForm.invalid" mat-fab color="primary" type="submit">
+                            Send
+                        </button>
+                    </div> 
+                </div>            
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

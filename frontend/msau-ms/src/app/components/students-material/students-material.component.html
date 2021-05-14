@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>Training Material</span>
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<table class="table-view" align="center">
+    <tr>
+        <th>
+            <mat-icon color="primary">list</mat-icon>
+            <div>Sr No.</div>
+        </th>
+        <th style="padding-left: 30px;">
+            <mat-icon color="primary">file_copy</mat-icon>
+            <div>File</div>
+        </th>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+        <th>{{1}}</th>
+        <td style="padding-left: 30px;">
+            <mat-icon color="primary">file_copy</mat-icon>
+            <a class="file-dwn" (click)="downloadFile(file.file)">{{file.fileType}}</a>
+        </td>
+    </tr>
+</table>

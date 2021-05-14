@@ -1,0 +1,24 @@
+
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+snack-bar-container.success{
+    background-color: #5cb85c;
+    color: gold;
+}
+
+snack-bar-container.update{
+    background-color: rgb(86, 120, 224);
+    color: gold;
+}
+
+snack-bar-container.notification simple-snack-bar{
+   font-size: 15px !important;
+   font-weight: 500;
+}
+
+snack-bar-container.warn{
+    background-color: darkred;
+    color: gold;
+}

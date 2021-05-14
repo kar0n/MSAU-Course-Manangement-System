@@ -1,0 +1,13 @@
+<mat-toolbar class="nav-bar" color="primary">
+    <mat-toolbar-row>
+        <a class="app" href="dashboard">MSAU - Course Management System</a>&nbsp;&nbsp;
+        <span class="example-spacer"></span>
+        <button class="nav-btn" mat-raised-button color="accent" (click)="creator()">Creator</button>&nbsp;&nbsp;
+        <button class="nav-btn" mat-raised-button color="accent" (click)="trainer()">Trainer</button>&nbsp;&nbsp;
+        <button class="nav-btn" mat-raised-button color="accent" (click)="student()">Student</button>
+        <span class="example-spacer"></span>
+        <!-- <a [ngStyle]="{'background-image': getImg()}" mat-card-avatar class="example-header-image"></a>&nbsp;&nbsp; -->
+        <h1>{{ userName }}</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="nav-logout" mat-raised-button color="warn" (click)="logout()">Log Out</button>
+    </mat-toolbar-row>
+</mat-toolbar>

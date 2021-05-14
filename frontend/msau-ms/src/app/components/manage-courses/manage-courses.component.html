@@ -1,0 +1,70 @@
+<app-navigation-bar></app-navigation-bar>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button class="btn" mat-raised-button color="accent" (click)="addCourse()">
+            <mat-icon>add</mat-icon>Add Course</button>&nbsp;&nbsp;
+        <mat-form-field class="search-form-field" floatLabel="never">
+            <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onClear()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <!-- <span class="example-spacer"></span> -->
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="courseId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.courseId }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.description }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="skills" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Skills</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.skills }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="prerequisites">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Prerequisites</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.prerequisites }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="location">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.location }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="createdOn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Date Created</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.createdOn | date:'medium'}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="modifiedOn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Last Modified</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.modifiedOn | date}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button class="assign-btn" mat-raised-button color="warn" (click)="assignTrainer(row.courseId)">Assign</button>&nbsp;&nbsp;
+                <button mat-icon-button (click)="onEdit(row)"><mat-icon matSuffix>edit</mat-icon></button>
+                <button mat-icon-button (click)="onDelete(row.courseId)" color="warn"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">Loading Data...</mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">No Data Available Currently!</mat-footer-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: headers" class="rows"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,50,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+

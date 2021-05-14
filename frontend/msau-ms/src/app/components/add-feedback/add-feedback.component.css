@@ -1,0 +1,42 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.btn-dialog-close{
+    width: 45px;
+    min-width: 0px !important;
+    height: 40px;
+    padding: 0px !important;
+}
+
+form.normal-form{
+    margin: 10px;
+    font-size: small;
+}
+
+.controllers-container{
+    width: 100%;
+    padding: 5%;
+}
+
+.controllers-container > *{
+    width: 100%;
+}
+
+.mat-icon:hover{
+    cursor: pointer;
+}
+
+.add-bottom-padding{
+    padding-bottom: 10px;
+}
+
+.button-row{
+    margin-left: 40%;
+}
+
+h1{
+    padding: auto;
+    margin-left: 40%;
+    font-weight: bold;
+}

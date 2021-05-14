@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>Add Training</span>
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="trainingForm" class="normal-form" (ngSubmit)="addTraining()">
+    <mat-grid-list cols="1" rowHeight="240px">
+        <mat-grid-tile>
+                <div class="controllers-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Trainer</mat-label>
+                        <mat-select formControlName="trainerId">
+                            <mat-option *ngFor="let trainer of trainers" [value]="trainer.userId">
+                                {{ trainer.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="trainingForm.controls['trainerId'].errors?.required">This field is mandatory</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Training Date</mat-label>
+                        <input matInput [matDatepicker]="picker" placeholder="Date" formControlName="datetime">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="trainingForm.controls['datetime'].errors?.required">This field is mandatory</mat-error>
+                    </mat-form-field>
+                    <div class="button-row">
+                        <button [disabled]="trainingForm.invalid" mat-fab color="primary" type="submit">
+                            Add
+                        </button>
+                    </div> 
+                </div>            
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

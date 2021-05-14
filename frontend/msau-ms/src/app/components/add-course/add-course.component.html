@@ -1,0 +1,58 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>{{courseForm.controls['courseId'].value?"Edit Course":"Add Course" }}</span>
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="courseForm" class="normal-form" (ngSubmit)="addCourse()">
+    <mat-grid-list cols="1" rowHeight="600px">
+        <mat-grid-tile>
+                <div class="controllers-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Title</mat-label>
+                        <input matInput placeholder="Eg: Angular*" formControlName="name">
+                        <mat-icon matSuffix>edit</mat-icon>
+                        <mat-error *ngIf="courseForm.controls['name'].errors?.required">This field is mandatory</mat-error>
+                        <mat-error *ngIf="courseForm.controls['name'].errors?.minlength">Minimum 3 characters required</mat-error>
+                        <mat-error *ngIf="courseForm.controls['name'].errors?.maxlength">Maximum 30 characters allowed</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Description</mat-label>
+                        <textarea matInput placeholder="Description" formControlName="description"> </textarea>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Prerequisites</mat-label>
+                        <input matInput placeholder="Eg: Frontend*" formControlName="prerequisites">
+                        <mat-icon matSuffix>edit</mat-icon>
+                        <mat-error *ngIf="courseForm.controls['skills'].errors?.required">This field is mandatory</mat-error>
+                        <mat-error *ngIf="courseForm.controls['skills'].errors?.minlength">Minimum 3 characters required</mat-error>
+                        <mat-error *ngIf="courseForm.controls['skills'].errors?.maxlength">Maximum 30 characters allowed</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Skills</mat-label>
+                        <input matInput placeholder="Eg: HTML,JS,CSS*" formControlName="skills">
+                        <mat-icon matSuffix>edit</mat-icon>
+                        <mat-error *ngIf="courseForm.controls['prerequisites'].errors?.required">This field is mandatory</mat-error>
+                        <mat-error *ngIf="courseForm.controls['prerequisites'].errors?.minlength">Minimum 3 characters required</mat-error>
+                        <mat-error *ngIf="courseForm.controls['prerequisites'].errors?.maxlength">Maximum 30 characters allowed</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Course Location</mat-label>
+                        <mat-select formControlName="location">
+                            <mat-option *ngFor="let location of locations" [value]="location">
+                                {{location}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="courseForm.controls['location'].errors?.required">This field is mandatory</mat-error>
+                    </mat-form-field>
+                    <div class="button-row">
+                        <button [disabled]="courseForm.invalid" mat-fab color="primary" type="submit">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                        <!-- <button (click)="onClear()">Clear</button> -->
+                    </div> 
+                </div>            
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

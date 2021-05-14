@@ -1,0 +1,90 @@
+.head{
+    font-size: larger;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.search-form-field{
+    width: 60%;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+    display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+    border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+    height: 32px;
+    width: 32px;
+}
+
+
+.hide{
+    display: none;
+}
+
+mat-footer-row mat-footer-cell{
+    justify-content: center;
+    font-style: italic;
+    font-weight: 500;
+}
+
+mat-header-cell{
+    background-color: rgb(241, 0, 129);
+    font-size: medium;
+    color: white;
+}
+
+mat-header-cell:hover{
+    font-size: 125%;
+}
+
+.feedback-btn{
+    padding: 0px 5px;
+    flex: auto;
+    overflow: hidden;
+    margin-right: 0px;
+    font-size: 115%;
+    background-color: #ffc400;
+}
+
+.feedback-btn:hover{
+    color: maroon;
+    font-size: 110%;
+}
+
+
+.rows{
+    background-color: whitesmoke;
+}
+
+.rows:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.file-btn{
+    padding: 0px 5px;
+    flex: auto;
+    overflow: hidden;
+    margin-right: 0px;
+    font-size: 115%;
+    color: black;
+}
+
+.file-btn:hover{
+    color: white;
+    font-size: 110%;
+}
+

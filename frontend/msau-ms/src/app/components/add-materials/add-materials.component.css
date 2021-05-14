@@ -1,0 +1,52 @@
+.uploadfilecontainer {
+    background-image: url(../../../assets/file-upload-icon.png) ;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 195px;
+    width: 90%;
+    margin: 20px auto;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #dbefff !important;
+    opacity: 0.8;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.files-list {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0px auto;
+    background: #ffffff;
+    border: 0.8px dashed;
+    border-radius: 12px;
+    padding: 0px 22px 0px 22px;
+    color: #053153;
+    font-weight: bold;
+}
+
+.files-list .remove-file {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.files-list .remove-file img {
+    width: 20px;
+}
+
+.mat-dialog-actions{
+    margin-left: 35%;
+}
+
+.mat-dialog-content{
+    height: 700px;
+}

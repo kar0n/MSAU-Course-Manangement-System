@@ -1,0 +1,77 @@
+package com.accolite.msau.services;
+
+import java.util.List;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+import com.accolite.msau.dao.TrainingDao;
+import com.accolite.msau.models.Email;
+import com.accolite.msau.models.Training;
+
+@Service
+public class TrainingService implements ITrainingService {
+	
+	@Autowired
+	TrainingDao trainingdao;
+	
+	@Autowired
+	private JavaMailSender javaMailSender;
+
+	@Override
+	public String addTraining(Training training) {
+		return trainingdao.addTraining(training);
+	}
+
+	@Override
+	public String updateTaining(Training trainingId) {
+		return trainingdao.updateTaining(trainingId);
+	}
+
+
+	@Override
+	public String sendMail(Email obj) throws MessagingException {
+		MimeMessage msg = javaMailSender.createMimeMessage();
+		
+		MimeMessageHelper helper = new MimeMessageHelper(msg, true);
+
+		
+		String message = "Dear Student," + "\n\n" +
+			      "Please go through the details for your next training session:" + "\n" +
+			      "Course Name: " + obj.getCourseName() + "\n" +
+			      "By: " + obj.getTrainerName() + "\n" +
+			      "Details: " + obj.getCourseDescription() + "\n" +
+			      "Location: " + obj.getCourseLocation() + "\n" +
+			      "Prerequisites: " + obj.getCoursePrerequisites() + "\n" +
+			      "Skills: " + obj.getCourseSkills() + "\n" +
+			      "DateTime: " + obj.getDatetime() + " 6:00pm \n" +
+			      "For more information please check our MSAU-CMS application and download the latest Training Materials." +
+			      "\n\nRegards,\n" + obj.getTrainerName() + ".";
+		
+		try {
+			helper.setTo(obj.getEmailId());
+			helper.setSubject(obj.getEmailSubject());
+			helper.setText(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
+		javaMailSender.send(msg);
+		return "Mail Sent Successfully!!!";
+	}
+
+	@Override
+	public List<Training> getTrainingForTrainer(int trainerId) {
+		return trainingdao.getTrainingForTrainer(trainerId);
+	}
+
+	@Override
+	public List<Training> getTrainingForStudent(int studentId) {
+		return trainingdao.getTrainingForStudent(studentId);
+	}
+}

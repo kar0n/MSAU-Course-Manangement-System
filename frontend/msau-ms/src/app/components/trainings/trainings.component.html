@@ -1,0 +1,56 @@
+<app-navigation-bar></app-navigation-bar>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1 class="head">My Trainings</h1>
+        <span class="example-spacer"></span>
+        <mat-form-field class="search-form-field" floatLabel="never">
+            <input matInput [(ngModel)]="searchKey" placeholder="Search Trainings" autocomplete="off" (keyup)="applyFilter()">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onClear()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <span class="example-spacer"></span>
+        <!-- <button class="btn" mat-raised-button color="accent">Send Mail</button> -->
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="trainingId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Training Id</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.trainingId }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="courseId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ courseName(element.courseId) }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="datetime">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Training Date</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.datetime | date }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="feedback" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Feedbacks</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.feedback }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button class="mail-btn" mat-raised-button color="primary" (click)="mail(row.courseId, row.datetime)"><mat-icon matSuffix>email</mat-icon> Mail</button>&nbsp;&nbsp;
+                <button class="upload-btn" mat-raised-button color="accent" (click)="upload(row.trainingId)"><mat-icon matSuffix>attach_file</mat-icon> Upload</button>&nbsp;&nbsp;
+                <button class="version-btn" mat-raised-button color="warn" (click)="getVersions(row.trainingId)"><mat-icon matSuffix>history</mat-icon> Versions</button>&nbsp;&nbsp;
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">Loading Data...</mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">No Data Available Currently!</mat-footer-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: headers" class="rows"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,50,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

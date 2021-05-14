@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.mail.javamail.MimeMessageHelper"/>
+    <fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
+    <fullyQualifiedTypeName name="javax.mail.internet.MimeMessage"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.services.TrainingService"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.models.Training"/>
+    <fullyQualifiedTypeName name="javax.mail.MessagingException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.models.TrainingMaterial"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.queries.Queries"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.rowmapper.TrainingMaterialRowMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.models.Course"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.RowCallbackHandler"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.controllers.CourseController"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.controllers.TrainingController"/>
+    <fullyQualifiedTypeName name="org.springframework.test.web.servlet.MockMvc"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.controllers.TrainingMaterialController"/>
+    <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.controllers.UserController"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.services.UserService"/>
+    <fullyQualifiedTypeName name="org.mockito.Mock"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.models.User"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.openpojo.reflection.PojoClass"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.dao.CourseDao"/>
+    <fullyQualifiedTypeName name="org.mockito.Mockito"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.dao.TrainingDao"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.dao.UserDao"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.dao.TrainingMaterialDao"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc"/>
+    <fullyQualifiedTypeName name="com.accolite.msau.models.Email"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>Upload Training Files</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<div mat-dialog-content>
+    <h1 style="margin-top: 15px; margin-left: 40px;">Click below to Upload Files</h1>
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+        <input style="display:none" type="file" #fileInput (change)="uploadFile($event.target.files)">
+    </div>
+    <div class="files-list" *ngFor="let file of files;let i= index">
+        <p> {{ file.name }} </p>
+        <button class="remove-file" color="warn" (click)="removeAttachment(i)">
+           <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button style="color: red;" (click)="onClose()">Cancel</button> &nbsp;
+        <button mat-stroked-button color="primary" (click)="addFiles()" [disabled]="files.length == 0">
+            Upload Files
+        </button>
+    </div>
+</div>

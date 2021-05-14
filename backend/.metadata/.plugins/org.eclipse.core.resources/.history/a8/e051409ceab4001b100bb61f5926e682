@@ -1,0 +1,25 @@
+package com.accolite.msau.rowmapper;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.accolite.msau.constants.Attributes;
+import com.accolite.msau.models.TrainingMaterial;
+
+public class TrainingMaterialRowMapper {
+	
+	public static final RowMapper<TrainingMaterial> TrainingMaterialRowMapperLambda = (rs, rowNum)-> {
+		
+		TrainingMaterial trainingMaterial = new TrainingMaterial();
+		trainingMaterial.setTrainingMaterialId(rs.getInt(Attributes.TRAINING_MATERIAL_ID));
+		trainingMaterial.setFileType(rs.getString(Attributes.TRAINING_MATERIAL_TYPE));
+		trainingMaterial.setFileName(rs.getString(Attributes.TRAINING_MATERIAL_NAME));
+		trainingMaterial.setCreatedOn(rs.getTimestamp(Attributes.TRAINING_MATERIAL_CREATED));
+		trainingMaterial.setModifiedOn(rs.getTimestamp(Attributes.TRAINING_MATERIAL_MODIFIED));
+		trainingMaterial.setFile(rs.getBlob(Attributes.TRAINING_MATERIAL_FILE).getBytes(
+						1, (int)rs.getBlob(Attributes.TRAINING_MATERIAL_ID).length()));
+		trainingMaterial.setTrainingId(rs.getInt(Attributes.TRAINING_MATERIAL_TRAINING_ID));
+		
+		return trainingMaterial;
+		
+	};
+}

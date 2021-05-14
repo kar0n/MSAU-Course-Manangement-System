@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+th {
+    border-bottom: 1px solid #dddd;
+}
+
+.file-dwn{
+    cursor: pointer;
+}

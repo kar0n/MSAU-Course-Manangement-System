@@ -1,0 +1,35 @@
+<app-navigation-bar></app-navigation-bar>
+  <div style="display:flex; justify-content:center; margin:30px">
+      <input style="margin:10px" class="btn btn-info" (click)="activeTrend('trend1')" type="button" value="Skills">
+      <input style="margin:10px" class="btn btn-info" (click)="activeTrend('trend2')" type="submit" value="Locations">
+  </div>
+
+  <div style=" justify-content:center; width:100px; height:100px;" *ngIf="trend1">
+    <ngx-charts-pie-chart
+          [results]="skills"
+          [legend]="true"
+          [legendTitle]="'Skills'"
+          [view]="[1300,700]"
+          [labels]="true"
+          (select)="onShow($event)"
+          style="fill: white;">
+    </ngx-charts-pie-chart>
+  </div>  
+  
+  <div style="display: flex; justify-content: center; " *ngIf="trend2">
+    <ngx-charts-bar-vertical
+                             [view]="[1000, 700]"
+                             [scheme]="colorScheme"
+                             [results]="locations"
+                             [gradient]="gradient"
+                             [xAxis]="showXAxis"
+                             [yAxis]="showYAxis"
+                             [legend]="showLegend"
+                             [showXAxisLabel]="showXAxisLabel"
+                             [showYAxisLabel]="showYAxisLabel"
+                             [xAxisLabel]="xAxisLabel"
+                             [yAxisLabel]="yAxisLabel"
+                             (select)="onShow($event)"
+                             style="fill: white;">
+    </ngx-charts-bar-vertical>
+  </div>

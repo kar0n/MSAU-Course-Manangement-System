@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <span class="example-spacer"></span>
+    <span>Training File Versions</span>
+    <span class="example-spacer"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<table class="table-view" align="center">
+    <tr>
+        <th>
+            <mat-icon color="primary">list</mat-icon>
+            <div>Sr No.</div>
+        </th>
+        <th style="padding-left: 30px;">
+            <mat-icon color="primary">file_copy</mat-icon>
+            <div>File</div>
+        </th>
+        <th style="padding-left: 30px;">
+            <mat-icon color="primary">date_range</mat-icon>
+            <div>Created On</div>
+        </th>
+        <th style="padding-left: 50px;">
+            <mat-icon color="primary">delete</mat-icon>
+            <div>Delete</div>
+        </th>
+    </tr>
+    <tr>
+
+    </tr>
+    <tr *ngFor="let file of files; let i = index">
+        <th>{{i+1}}</th>
+        <td style="padding-left: 30px;">
+            <mat-icon color="primary">file_copy</mat-icon>
+            <a class="file-dwn" (click)="downloadFile(file.file, file.fileType)">{{file.fileName}}</a>
+        </td>
+        <td style="padding-left: 30px;">
+            {{file.createdOn | date}}
+        </td>
+        <td class="del-btn" style="padding-left: 50px;" (click)="deleteFile(file.trainingMaterialId)">
+            <mat-icon color="warn">delete_forever</mat-icon>
+        </td>
+    </tr>
+</table>

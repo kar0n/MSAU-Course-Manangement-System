@@ -1,0 +1,48 @@
+.nav-bar{
+    margin-bottom: 1px;
+}
+
+.nav-home{
+    padding: auto;
+    font-size: larger;
+}
+.nav-btn{
+    padding: 3px 20px;
+    font-size: 110%;
+    background-color: #ffc400;
+}
+
+.nav-btn:hover{
+    color: white;
+    font-size: 120%;
+}
+
+.nav-logout{
+    padding: 0 20px;
+    font-size: large;
+}
+
+.nav-logout:hover{
+    color: #ffc400;
+    font-size: 105%;
+}
+
+.mat-card-avatar {
+    font-size: 30px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+h1{
+    font-size: larger;
+}
+.app{
+    color: white;
+    font-size: large;
+    text-decoration: none;
+}
+.app:hover{
+    cursor: pointer;
+  }
