@@ -4,7 +4,7 @@
 
 1. [Login](#Login)
 2. [DashBoard](#Dashboard)
-3. [Courses](#Courses)
+3. [Courses](#All-Courses)
 4. [Trainings](#Trainings)
 5. [Upload Files](#Upload-Files)
 6. [Email](#Send-Email)
@@ -40,7 +40,7 @@
 <img src="images/upload-file.png">
 
 ## Get Versions
-<img src="images/get-files.png">
+<img src="images/get-versions.png">
 
 ## Send Email
 <img src="images/send-mail.png">
@@ -49,6 +49,9 @@
 
 ## Students
 <img src="images/students.png">
+
+## Get Files
+<img src="images/get-files.png">
 
 ## Give Feedback
 <img src="images/feedback.png">
