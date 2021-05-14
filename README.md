@@ -7,7 +7,7 @@
 3. [Courses](#All-Courses)
 4. [Trainings](#Trainings)
 5. [Upload Files](#Upload-Files)
-6. [Email](#Send-Email)
+6. [Send Mail](#Send-Email)
 7. [Students](#Students)
 
 ## Login
